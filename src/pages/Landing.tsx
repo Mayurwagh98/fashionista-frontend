@@ -4,6 +4,7 @@ import Testimonials from "../components/Landing/Testimonials";
 import NewsLetter from "../components/Landing/NewsLetter";
 import Hero from "../components/Landing/Hero";
 import { useEffect } from "react";
+import Navbar from "../components/Navbar/Navbar";
 
 const Landing = () => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const Landing = () => {
   }, []);
   return (
     <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen">
+      <Navbar />
       {/* Hero Section */}
       <Hero />
       {/* Featured Categories */}

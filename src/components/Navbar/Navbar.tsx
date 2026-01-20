@@ -26,15 +26,6 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          <Link to="/dashboard" className="hover:text-pink-600 transition">
-            Dashboard
-          </Link>
-          <Link to="/products" className="hover:text-pink-600 transition">
-            Products
-          </Link>
-          <Link to="/categories" className="hover:text-pink-600 transition">
-            Categories
-          </Link>
         </div>
         {/* Right Icons */}
         <div className="flex items-center space-x-6 relative" ref={dropdownRef}>
