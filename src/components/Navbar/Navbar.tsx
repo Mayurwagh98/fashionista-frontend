@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicked outside
   useEffect(() => {
-    const handleClickOutside = (e: unknown) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && e.target instanceof Node && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false);
       }
     };
@@ -37,15 +37,14 @@ const Navbar = () => {
             </span>
           </button>
 
-          {/* Profile */}
-          <div className="relative">
-            <button
-              onClick={() => setDropdownOpen((prev) => !prev)}
-              className="flex items-center gap-2 border border-gray-300 px-3 py-1.5 rounded-full text-sm hover:border-pink-600"
-            >
-              <FiUser className="text-gray-600" />
-              <span className="text-gray-700">Profile</span>
-            </button>
+          {/* Login and Signup */}
+          <div className="flex items-center space-x-6">
+            <Link to="/login" className="hover:text-pink-600 transition">
+              Login
+            </Link>
+            <Link to="/signup" className="hover:text-pink-600 transition">
+              Signup
+            </Link>
 
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 text-sm">
